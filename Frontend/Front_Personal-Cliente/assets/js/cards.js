@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
       });
-      event.preventDefault(); // Prevent the default link behavior
+      event.preventDefault();
       return;
     }
 
@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     fetch("http://127.0.0.1:8000/pedidos", {
-    // fetch("https://delish.com/api/pedidos", {
+    
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -288,8 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
           quantity = 1;
           modalProductName.textContent = producto.nombre;
           
-          // Mostrar la imagen del producto
-          // Si la imagen no está disponible, mostrar una imagen por defecto
+          
           if (producto.imagen && producto.imagen.trim() !== "") {
             modalProductImage.src = producto.imagen.trim();
           } else {
@@ -299,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
             modalProductImage.src = "assets/img/default-food.png";
           };
 
-          // modalProductImage.src = producto.imagen || 'assets/img/default-food.png';
+          
 
 
           modalProductDescription.textContent = producto.descripcion;
