@@ -1,0 +1,71 @@
+.card-food {
+  width: 195px;
+  height: 285px;
+  background: #313131;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: 0.2s ease-in-out;
+  position: relative;
+  cursor: pointer;
+}
+
+.img-food {
+  height: 60%;
+  position: absolute;
+  transition: 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.textBox-food {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: end;
+  width: 100%;
+  height: 100%;
+  gap: 0em;
+  padding: 1em;
+  z-index: 5;
+  transition: 0.2s ease-in-out;
+}
+
+.textBox-food > .head-food {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.textBox-food > .price-food {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.textBox-food > .discription-food {
+  font-size: 0.8em;
+  color: lightgrey;
+  font-weight: light;
+}
+
+.card-food:hover > .textBox-food {
+  opacity: 1;
+  gap: 0.5em;
+}
+
+.card-food:hover > .img-food {
+  filter: blur(3px);
+  animation: anim 3s infinite ease-in-out;
+}
+
+@keyframes anim {
+  50% {
+    transform: translateY(-10%) rotate(5deg);
+  }
+}
+
+.card-food:hover {
+  transform: scale(1.04);
+}
