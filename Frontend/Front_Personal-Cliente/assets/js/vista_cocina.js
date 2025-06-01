@@ -25,13 +25,7 @@ async function obtenerVentas() {
     }
 }
 
-// Cambios ----------------------------------------------------------------------------------
-// function llenarTabla(ventas) {
-//     const cuerpoTabla = document.getElementById('cuerpoTabla');
-//     cuerpoTabla.innerHTML = ''; // Limpiar la tabla antes de llenarla
-
-//     if (ventas.length === 0) {
-//         // Mostrar mensaje si no hay datos
+// Costrar mensaje si no hay datos
 //         cuerpoTabla.innerHTML = `
 //             <tr>
 //                 <td colspan="5" style="text-align: center;">

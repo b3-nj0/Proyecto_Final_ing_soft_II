@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error("No se encontraron elementos con la clase 'card'.");
         }
 
-        // Cuando el usuario hace clic en <span> (x), se cierra el modal
+ 
         var closeButton = modal.querySelector(".close"); // Asegúrate de que el modal tenga un botón de cerrar
         if (closeButton) {
             closeButton.onclick = function() {
