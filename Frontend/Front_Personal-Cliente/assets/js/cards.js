@@ -1,3 +1,4 @@
+//hola//
 document.addEventListener("DOMContentLoaded", () => {
   const contenedorPlatos = document.querySelector(".productos");
   const contenedorExtras = document.querySelector(".extras-container");
