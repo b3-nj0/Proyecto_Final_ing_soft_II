@@ -118,7 +118,7 @@
         Imprimir Ticket
     </button>
 
-    <a href="index.html" class="back-to-home-btn no-print">Volver al Inicio</a>
+    <a href="vista_cliente.html" class="back-to-home-btn no-print">Volver al Inicio</a>
 
     <script>
         // URL base de tu API
@@ -264,9 +264,6 @@
 
         function imprimirTicket() {
             window.print();
-            setTimeout(() => {
-                window.location.href = 'index.html'; // Regreso automático
-            }, 2000); // Espera 2 segundos antes de volver
         }
 
         // Cargar tickets al inicio
