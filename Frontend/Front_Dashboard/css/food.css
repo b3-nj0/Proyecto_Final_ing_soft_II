@@ -1,71 +1,75 @@
 .card-food {
-  width: 195px;
-  height: 285px;
-  background: #313131;
+  width: 190px;
+  height: 254px;
   border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  transition: 0.2s ease-in-out;
+  background: #f5f5f5;
   position: relative;
-  cursor: pointer;
+  padding: 1.8rem;
+  border: 2px solid #c3c6ce;
+  -webkit-transition: 0.5s ease-out;
+  transition: 0.5s ease-out;
+  overflow: visible;
 }
 
-.img-food {
-  height: 60%;
-  position: absolute;
-  transition: 0.2s ease-in-out;
-  z-index: 1;
-}
-
-.textBox-food {
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: end;
-  width: 100%;
+.card-details-food {
+  color: #5a5c69;
   height: 100%;
-  gap: 0em;
-  padding: 1em;
-  z-index: 5;
-  transition: 0.2s ease-in-out;
+  gap: .5em;
+  display: grid;
+  place-content: center;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.textBox-food > .head-food {
-  font-size: 1em;
+.card-button-food {
+  text-decoration: none;
+  text-align: center;
+  -webkit-transform: translate(-50%, 125%);
+  -ms-transform: translate(-50%, 125%);
+  transform: translate(-50%, 125%);
+  width: 70%;
+  border-radius: 1rem;
+  border: none;
+  background-color: #4e73df;
+  color: #fff;
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  opacity: 0;
+  -webkit-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.text-body-food {
+  color: rgb(134, 134, 134);
+}
+
+/*Text*/
+.text-title.food {
+  font-size: 1.5em;
   font-weight: bold;
 }
 
-.textBox-food > .price-food {
-  font-size: 1em;
-  font-weight: bold;
-}
-
-.textBox-food > .discription-food {
-  font-size: 0.8em;
-  color: lightgrey;
-  font-weight: light;
-}
-
-.card-food:hover > .textBox-food {
-  opacity: 1;
-  gap: 0.5em;
-}
-
-.card-food:hover > .img-food {
-  filter: blur(3px);
-  animation: anim 3s infinite ease-in-out;
-}
-
-@keyframes anim {
-  50% {
-    transform: translateY(-10%) rotate(5deg);
-  }
-}
-
+/*Hover*/
 .card-food:hover {
-  transform: scale(1.04);
+  border-color: #4e73df;
+  -webkit-box-shadow: 10px 5px 18px 0 rgba(255, 255, 255, 0.877);
+  box-shadow: 10px 5px 18px 0 rgba(255, 255, 255, 0.877);
+}
+
+.card-food:hover .card-button-food {
+  -webkit-transform: translate(-50%, 50%);
+  -ms-transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%);
+  opacity: 1;
+}
+.img-food {
+  width: 100%;
+  height: 150px;
+  border-radius: 15px;
+  object-fit: cover;
+  -webkit-transition: 0.5s ease-out;
+  transition: 0.5s ease-out;
 }
