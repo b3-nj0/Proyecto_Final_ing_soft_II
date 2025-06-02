@@ -853,22 +853,6 @@ header.scolled .dropdown-toggle {
     flex-direction: column; /* Stack header, body, footer */
   }
 
-
-
-
-  
-  .modal-header-product {
-    padding: 15px 20px;
-    background: #e63946;
-    color: white !important;
-    display: flex;
-    justify-content: space-between;
-    align-items: center !important;
-    flex-shrink: 0;
-    text-transform: uppercase;
-    font-weight: bolder;
-    text-align: center;
-  }
   
   .modal-header-product h3 {
     margin: 0;
