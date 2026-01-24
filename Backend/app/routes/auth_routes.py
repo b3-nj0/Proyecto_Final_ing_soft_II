@@ -9,8 +9,9 @@ from dependencies.auth import get_current_user
 from config.database import get_db
 from config.settings_env import settings_objeto as settings
 
-from schemas.schema_user import UsuarioBase, UsuarioLogin, TokenResponse
-from schemas.usuario_schemas import UsuarioActual
+from schemas.schema_user import UsuarioBase
+
+from schemas.usuario_schemas import usuariosInput
 
 from service.service_auth import autenticar_usuario, crear_usuario, crear_token_acceso
 
@@ -24,7 +25,7 @@ usuario = APIRouter(tags=["User"])
 # Autenticación con DB
 
 
-@usuario.get("/me", response_model=UsuarioActual)
+@usuario.get("/me")
 def obtener_mi_perfil(user=Depends(get_current_user)):
     print('que esta devolviendo ' + user)
     return user

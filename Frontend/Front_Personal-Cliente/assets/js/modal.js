@@ -33,5 +33,5 @@ document.addEventListener("DOMContentLoaded", function() {
                 modal.style.display = "none"; // Ocultar el modal
             }
         };
-    }, 3000); // Espera 3 segundos antes de ejecutar el código
+    }, 2000); // Espera 3 segundos antes de ejecutar el código
 });

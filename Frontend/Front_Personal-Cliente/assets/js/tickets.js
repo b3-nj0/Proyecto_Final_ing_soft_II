@@ -2,9 +2,9 @@ async function obtenerUltimoTicket() {
     try {
         const response = await fetch(`${API_BASE_URL}ticket/ultimo/imprimir`);
         
-        if (!response.ok) {
-            throw new Error(`Error al obtener ticket: ${response.status}`);
-        }
+        // if (!response.ok) {
+        //     throw new Error(`Error al obtener ticket: ${response.status}`);
+        // }
         
         return await response.json();
     } catch (error) {

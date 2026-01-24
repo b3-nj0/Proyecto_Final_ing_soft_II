@@ -283,10 +283,10 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.style.display = "none";
     })
 
-    .catch(err => {
-      console.error("Error al registrar el pedido:", err);
-      alert("Hubo un error al registrar el pedido");
-    });
+    // .catch(err => {
+    //   console.error("Error al registrar el pedido:", err);
+    //   alert("Hubo un error al registrar el pedido");
+    // });
     
   });
 
@@ -298,7 +298,52 @@ document.addEventListener("DOMContentLoaded", () => {
         return contenedorPlatos;
       case "extras":
         return contenedorExtras;
-      case "bebidas":
+      case "bebidas":public function uploadPrereqDocuments(Request $request, $id)
+    {
+        $deal = Deal::findOrFail($id);
+
+        if ($request->hasFile('req_doc')) {
+            foreach ($request->file('req_doc') as $docName => $file) {
+                if (!$file) continue;
+                $cleanName = str_replace('_', ' ', $docName);
+                
+                $path = $file->store("deal_docs/{$deal->id}", 'public');
+                // Try to persist metadata if relation exists
+                if (method_exists($deal, 'documents')) {
+                    try {
+                        $deal->documents()->create([
+                            'name' => $docName,
+                            'file_name' => basename($path),
+                            'file_path' => $path,
+                            'added_by' => user()->id
+                        ]);
+                    } catch (\Throwable $e) {
+                        \Log::warning('Could not create deal document record: '.$e->getMessage());
+                    }
+                }
+            }
+        }
+
+        if ($request->has('target_stage_id') && !empty($request->target_stage_id)) {
+            $deal->pipeline_stage_id = $request->target_stage_id;
+            $deal->save();
+            
+            // Opcional: Registrar en el historial que se movió
+            // (Si tienes lógica de historial, agrégala aquí)
+        }
+
+        // --- CÓDIGO NUEVO PARA NOTIFICACIONES ---
+        // 1. Obtener al admin a notificar (aquí tomamos el primero, o puedes buscar por rol)
+        $notifyUser = User::allAdmins()->first();
+
+        // 2. Si existe un admin, enviamos el evento
+        if ($notifyUser) {
+            event(new PrereqDocumentsUploaded($deal, $notifyUser));
+        }
+        // ----------------------------------------
+
+        return Reply::success('Documentos subidos y notificación enviada.');
+    }
         return contenedorBebidas;
       default:
         console.warn(`Categoría no reconocida: ${categoria}`);
